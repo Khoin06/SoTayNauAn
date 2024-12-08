@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SoTayNauAn;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace SoTayNauAn
+namespace QuanLyQuanCafe
 {
     public partial class fLogin : Form
     {
@@ -16,6 +17,20 @@ namespace SoTayNauAn
         {
             InitializeComponent();
         }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            fTableManager f = new fTableManager();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         private void fLogin_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (MessageBox.Show("Bạn có thật sự muốn thoát chương trình?", "Thông báo", MessageBoxButtons.OKCancel) != System.Windows.Forms.DialogResult.OK)
@@ -24,17 +39,22 @@ namespace SoTayNauAn
             }
         }
 
-        private void btnLogin_Click_1(object sender, EventArgs e)
+        private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            fTableManager f = new fTableManager();
+
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+            fSignUp f = new fSignUp();
             this.Hide();
             f.ShowDialog();
             this.Show();
-        }
-
-        private void btnExit_Click_1(object sender, EventArgs e)
-        {
-            Application.Exit();
         }
     }
 }
