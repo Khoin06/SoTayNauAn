@@ -50,5 +50,13 @@ namespace SoTayNauAn
             f.ShowDialog();
             this.Show();
         }
+
+        private void button9_Click(object sender, EventArgs e)
+        {
+            schudle f = new schudle();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
     }
 }
