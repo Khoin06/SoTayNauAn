@@ -63,6 +63,7 @@
             // 
             // txbUserName
             // 
+            this.txbUserName.BackColor = System.Drawing.Color.Gainsboro;
             this.txbUserName.Location = new System.Drawing.Point(139, 10);
             this.txbUserName.Name = "txbUserName";
             this.txbUserName.ReadOnly = true;
@@ -90,6 +91,7 @@
             // 
             // txbDisplayName
             // 
+            this.txbDisplayName.BackColor = System.Drawing.Color.Gainsboro;
             this.txbDisplayName.Location = new System.Drawing.Point(139, 10);
             this.txbDisplayName.Name = "txbDisplayName";
             this.txbDisplayName.Size = new System.Drawing.Size(252, 20);
@@ -116,6 +118,7 @@
             // 
             // txbPassWord
             // 
+            this.txbPassWord.BackColor = System.Drawing.Color.Gainsboro;
             this.txbPassWord.Location = new System.Drawing.Point(139, 10);
             this.txbPassWord.Name = "txbPassWord";
             this.txbPassWord.Size = new System.Drawing.Size(252, 20);
@@ -143,6 +146,7 @@
             // 
             // txbNewPass
             // 
+            this.txbNewPass.BackColor = System.Drawing.Color.Gainsboro;
             this.txbNewPass.Location = new System.Drawing.Point(139, 10);
             this.txbNewPass.Name = "txbNewPass";
             this.txbNewPass.Size = new System.Drawing.Size(252, 20);
@@ -170,6 +174,7 @@
             // 
             // txbReEnterPass
             // 
+            this.txbReEnterPass.BackColor = System.Drawing.Color.Gainsboro;
             this.txbReEnterPass.Location = new System.Drawing.Point(139, 10);
             this.txbReEnterPass.Name = "txbReEnterPass";
             this.txbReEnterPass.Size = new System.Drawing.Size(252, 20);
@@ -188,22 +193,26 @@
             // 
             // btnUpdate
             // 
+            this.btnUpdate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnUpdate.ForeColor = System.Drawing.Color.White;
             this.btnUpdate.Location = new System.Drawing.Point(247, 262);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 23);
             this.btnUpdate.TabIndex = 6;
             this.btnUpdate.Text = "Cập nhật";
-            this.btnUpdate.UseVisualStyleBackColor = true;
+            this.btnUpdate.UseVisualStyleBackColor = false;
             // 
             // btnExti
             // 
+            this.btnExti.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.btnExti.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnExti.ForeColor = System.Drawing.Color.White;
             this.btnExti.Location = new System.Drawing.Point(328, 262);
             this.btnExti.Name = "btnExti";
             this.btnExti.Size = new System.Drawing.Size(75, 23);
             this.btnExti.TabIndex = 7;
             this.btnExti.Text = "Thoát";
-            this.btnExti.UseVisualStyleBackColor = true;
+            this.btnExti.UseVisualStyleBackColor = false;
             this.btnExti.Click += new System.EventHandler(this.btnExti_Click);
             // 
             // fAccountProfile
@@ -211,6 +220,7 @@
             this.AcceptButton = this.btnUpdate;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.CancelButton = this.btnExti;
             this.ClientSize = new System.Drawing.Size(423, 296);
             this.Controls.Add(this.btnExti);

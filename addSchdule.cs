@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace SoTayNauAn
 {
-    public partial class addcook : Form
+    public partial class addSchdule : Form
     {
-        public addcook()
+        public addSchdule()
         {
             InitializeComponent();
-        }
-
-        private void txtDishName_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

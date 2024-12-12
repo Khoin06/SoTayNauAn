@@ -10,14 +10,16 @@ using System.Windows.Forms;
 
 namespace SoTayNauAn
 {
-    public partial class addcook : Form
+    public partial class ingredient : Form
     {
-        public addcook()
+
+
+        private void ingredientGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            InitializeComponent();
+
         }
 
-        private void txtDishName_TextChanged(object sender, EventArgs e)
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

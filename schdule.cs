@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace SoTayNauAn
 {
-    public partial class schudle : Form
+    public partial class schdule : Form
     {
-        public schudle()
+        public schdule()
         {
             InitializeComponent();
         }

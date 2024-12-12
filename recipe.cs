@@ -10,14 +10,19 @@ using System.Windows.Forms;
 
 namespace SoTayNauAn
 {
-    public partial class addcook : Form
+    public partial class recipe : Form
     {
-        public addcook()
+        public recipe()
         {
             InitializeComponent();
         }
 
-        private void txtDishName_TextChanged(object sender, EventArgs e)
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
 
         }

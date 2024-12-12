@@ -2,7 +2,7 @@
 
 namespace SoTayNauAn
 {
-    partial class schudle
+    partial class addSchdule
     {
         /// <summary>
         /// Required designer variable.
