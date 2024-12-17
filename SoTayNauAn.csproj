@@ -58,6 +58,7 @@
     <Compile Include="addSchdule.Designer.cs">
       <DependentUpon>addSchdule.cs</DependentUpon>
     </Compile>
+    <Compile Include="DAO\dataProvider.cs" />
     <Compile Include="fAccountProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,6 +148,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DTO\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

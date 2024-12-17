@@ -34,10 +34,16 @@ namespace SoTayNauAn
             this.homeButton = new System.Windows.Forms.Button();
             this.editButton = new System.Windows.Forms.Button();
             this.findButton = new System.Windows.Forms.Button();
-            this.nameTextBox = new System.Windows.Forms.TextBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,14 +58,20 @@ namespace SoTayNauAn
             // 
             // scheduleGridView
             // 
-            this.scheduleGridView.AllowUserToAddRows = false;
-            this.scheduleGridView.AllowUserToDeleteRows = false;
-            this.scheduleGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.scheduleGridView.Location = new System.Drawing.Point(50, 80);
+            this.scheduleGridView.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.scheduleGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn5,
+            this.dataGridViewTextBoxColumn6,
+            this.dataGridViewTextBoxColumn7});
+            this.scheduleGridView.Location = new System.Drawing.Point(85, 74);
             this.scheduleGridView.Name = "scheduleGridView";
             this.scheduleGridView.RowHeadersVisible = false;
-            this.scheduleGridView.Size = new System.Drawing.Size(600, 200);
-            this.scheduleGridView.TabIndex = 1;
+            this.scheduleGridView.Size = new System.Drawing.Size(507, 157);
+            this.scheduleGridView.TabIndex = 10;
             // 
             // homeButton
             // 
@@ -93,13 +105,6 @@ namespace SoTayNauAn
             this.findButton.TabIndex = 4;
             this.findButton.Text = "Find";
             this.findButton.UseVisualStyleBackColor = false;
-            // 
-            // nameTextBox
-            // 
-            this.nameTextBox.Location = new System.Drawing.Point(550, 250);
-            this.nameTextBox.Name = "nameTextBox";
-            this.nameTextBox.Size = new System.Drawing.Size(100, 20);
-            this.nameTextBox.TabIndex = 5;
             // 
             // textBox1
             // 
@@ -135,6 +140,34 @@ namespace SoTayNauAn
             this.label1.TabIndex = 8;
             this.label1.Text = "Schdule";
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.Name = "Monday";
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.Name = "Tuesday";
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.Name = "Wednesday";
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.Name = "Thursday";
+            // 
+            // dataGridViewTextBoxColumn5
+            // 
+            this.dataGridViewTextBoxColumn5.Name = "Friday";
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.Name = "Saturday";
+            // 
+            // dataGridViewTextBoxColumn7
+            // 
+            this.dataGridViewTextBoxColumn7.Name = "Sunday";
+            // 
             // schdule
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
@@ -147,7 +180,6 @@ namespace SoTayNauAn
             this.Controls.Add(this.homeButton);
             this.Controls.Add(this.editButton);
             this.Controls.Add(this.findButton);
-            this.Controls.Add(this.nameTextBox);
             this.Name = "schdule";
             this.Text = "Schedule";
             ((System.ComponentModel.ISupportInitialize)(this.scheduleGridView)).EndInit();
@@ -161,12 +193,18 @@ namespace SoTayNauAn
         private System.Windows.Forms.Button homeButton;
         private System.Windows.Forms.Button editButton;
         private System.Windows.Forms.Button findButton;
-        private System.Windows.Forms.TextBox nameTextBox;
 
         #endregion
 
         private TextBox textBox1;
         private Label label2;
         private Label label1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
     }
 }
