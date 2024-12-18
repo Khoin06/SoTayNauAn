@@ -27,7 +27,10 @@ namespace SoTayNauAn
 
         private void label2_Click(object sender, EventArgs e)
         {
-
+            ingredient f = new ingredient();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
         private void label3_Click(object sender, EventArgs e)

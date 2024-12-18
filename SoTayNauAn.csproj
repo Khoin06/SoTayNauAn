@@ -106,6 +106,9 @@
     <EmbeddedResource Include="addcook.resx">
       <DependentUpon>addcook.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="addSchdule.resx">
+      <DependentUpon>addSchdule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fAccountProfile.resx">
       <DependentUpon>fAccountProfile.cs</DependentUpon>
     </EmbeddedResource>

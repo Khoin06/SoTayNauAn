@@ -1,5 +1,7 @@
-﻿using System;
+﻿using SoTayNauAn.DAO;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Windows.Forms;
 
 namespace SoTayNauAn
@@ -9,7 +11,42 @@ namespace SoTayNauAn
         public ingredient()
         {
             InitializeComponent();
+            LoadIngredientList();
+
         }
+        void LoadIngredientList()
+        {
+            string query = "SELECT TenNL, DonViTinh FROM NguyenLieu";
+
+            dataProvider data = new dataProvider();
+            DataTable dataTable = data.ExecuteQuery(query, new object[] { });
+
+            // Gán dữ liệu vào DataGridView
+            ingredientGridView.DataSource = dataTable;
+        }
+
+        private void ingredient_Load(object sender, EventArgs e)
+        {
+            LoadIngredientList();
+        }
+
+        private void ingredientGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0) // Đảm bảo chỉ lấy hàng hợp lệ
+            {
+                DataGridViewRow row = ingredientGridView.Rows[e.RowIndex];
+
+                // Gán giá trị vào các TextBox
+                textBox1.Text = row.Cells["TenNL"].Value.ToString();
+                textBox2.Text = row.Cells["DonViTinh"].Value.ToString();
+                // Cài đặt tự động điều chỉnh kích thước
+            }
+        }
+
+
+
+
+
 
         private void InitializeComponent()
         {
@@ -32,6 +69,7 @@ namespace SoTayNauAn
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
+            this.homeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.ingredientGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -47,27 +85,22 @@ namespace SoTayNauAn
             // ingredientGridView
             // 
             this.ingredientGridView.AllowUserToOrderColumns = true;
-            this.ingredientGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IngredientName,
-            this.Unit});
             this.ingredientGridView.Location = new System.Drawing.Point(430, 68);
+            this.ingredientGridView.MultiSelect = false;
             this.ingredientGridView.Name = "ingredientGridView";
             this.ingredientGridView.RowHeadersVisible = false;
-            this.ingredientGridView.Size = new System.Drawing.Size(247, 190);
+            this.ingredientGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.ingredientGridView.Size = new System.Drawing.Size(219, 187);
             this.ingredientGridView.TabIndex = 1;
-            this.ingredientGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ingredientGridView_CellContentClick);
+            this.ingredientGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ingredientGridView_CellContentClick_1);
             // 
             // IngredientName
             // 
-            this.IngredientName.HeaderText = "Ingredient";
             this.IngredientName.Name = "IngredientName";
-            this.IngredientName.Width = 200;
             // 
             // Unit
             // 
-            this.Unit.HeaderText = "Unit";
             this.Unit.Name = "Unit";
-            this.Unit.Width = 200;
             // 
             // searchBox
             // 
@@ -88,6 +121,7 @@ namespace SoTayNauAn
             this.findButton.TabIndex = 3;
             this.findButton.Text = "Find";
             this.findButton.UseVisualStyleBackColor = false;
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // deleteButton
             // 
@@ -99,6 +133,7 @@ namespace SoTayNauAn
             this.deleteButton.TabIndex = 4;
             this.deleteButton.Text = "Delete";
             this.deleteButton.UseVisualStyleBackColor = false;
+            this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
             // editButton
             // 
@@ -115,12 +150,13 @@ namespace SoTayNauAn
             // 
             this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(101, 159);
+            this.saveButton.Location = new System.Drawing.Point(102, 159);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 30);
             this.saveButton.TabIndex = 7;
-            this.saveButton.Text = "Save";
+            this.saveButton.Text = "Add";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click_1);
             // 
             // ingredientNameTextBox
             // 
@@ -139,6 +175,7 @@ namespace SoTayNauAn
             this.unitTextBox.Name = "unitTextBox";
             this.unitTextBox.Size = new System.Drawing.Size(247, 22);
             this.unitTextBox.TabIndex = 9;
+            this.unitTextBox.TextChanged += new System.EventHandler(this.unitTextBox_TextChanged);
             // 
             // label1
             // 
@@ -148,7 +185,6 @@ namespace SoTayNauAn
             this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 10;
             this.label1.Text = "Ingredient-name";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -220,10 +256,23 @@ namespace SoTayNauAn
             this.label6.TabIndex = 17;
             this.label6.Text = "Recipe";
             // 
+            // homeButton
+            // 
+            this.homeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.homeButton.ForeColor = System.Drawing.Color.White;
+            this.homeButton.Location = new System.Drawing.Point(29, 506);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(75, 30);
+            this.homeButton.TabIndex = 18;
+            this.homeButton.Text = "Home";
+            this.homeButton.UseVisualStyleBackColor = false;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+            // 
             // ingredient
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.homeButton);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
@@ -268,5 +317,6 @@ namespace SoTayNauAn
         private TextBox textBox2;
         private Label label5;
         private Label label6;
+        private Button homeButton;
     }
 }

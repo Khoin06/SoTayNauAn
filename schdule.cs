@@ -1,77 +1,120 @@
-﻿using SoTayNauAn.DAO;
+﻿using QuanLyQuanCafe;
+using SoTayNauAn.DAO;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SoTayNauAn
 {
     public partial class schdule : Form
     {
-
-
         public schdule()
         {
             InitializeComponent();
-
             LoadAccountList();
         }
-       void LoadAccountList()
-{
-    string query = @"
+
+        void LoadAccountList()
+        {
+            string query = @"
         SELECT 
-           CASE DATEPART(WEEKDAY, NgayTao)
-              WHEN 2 THEN 'Monday'
-              WHEN 3 THEN 'Tuesday'
-              WHEN 4 THEN 'Wednesday'
-              WHEN 5 THEN 'Thursday'
-              WHEN 6 THEN 'Friday'
-              WHEN 7 THEN 'Saturday'
-              WHEN 1 THEN 'Sunday'
-           END AS DayOfWeek,
-           TenMenu
-        FROM ChitietM";
+            m.TenMenu AS DayAndSession,
+            ct.TenCT AS Dish,
+            CASE 
+                WHEN m.TenMenu LIKE '%Sáng' THEN N'Sáng'
+                WHEN m.TenMenu LIKE '%Trưa' THEN N'Trưa'
+                WHEN m.TenMenu LIKE '%Tối' THEN N'Tối'
+            END AS Buoi,
+            CASE 
+                WHEN m.TenMenu LIKE '%Thứ 2%' THEN N'Thứ 2'
+                WHEN m.TenMenu LIKE '%Thứ 3%' THEN N'Thứ 3'
+                WHEN m.TenMenu LIKE '%Thứ 4%' THEN N'Thứ 4'
+            END AS Thu
+        FROM MENU m
+        JOIN ChitietM ct ON m.TenMenu = ct.TenMenu
+        ORDER BY Thu, Buoi";
 
-    dataProvider data = new dataProvider();
-    DataTable table = data.ExecuteQuery(query);
+            dataProvider data = new dataProvider();
+            DataTable table = data.ExecuteQuery(query, new object[] { });
 
-    // Đổ dữ liệu vào từng cột tương ứng với ngày trong tuần
-    foreach (DataRow row in table.Rows)
-    {
-        string day = row["DayOfWeek"].ToString();
-        string tenMenu = row["TenMenu"].ToString();
+            // Tạo cột cho DataGridView nếu chưa có
+            if (scheduleGridView.Columns.Count == 0)
+            {
+                scheduleGridView.Columns.Add("Buoi", "Buổi");
+                scheduleGridView.Columns.Add("Thu2", "Thứ 2");
+                scheduleGridView.Columns.Add("Thu3", "Thứ 3");
+                scheduleGridView.Columns.Add("Thu4", "Thứ 4");
+            }
 
-        // Xác định cột nào tương ứng với ngày
-        int columnIndex = GetDayColumnIndex(day);
+            // Xóa dữ liệu cũ
+            scheduleGridView.Rows.Clear();
 
-        // Thêm dữ liệu vào cột tương ứng
-        scheduleGridView.Rows[0].Cells[columnIndex].Value = tenMenu;
-    }
-}
+            // Tạo các hàng cho Buổi: Sáng, Trưa, Tối
+            scheduleGridView.Rows.Add("Sáng", "", "", "");
+            scheduleGridView.Rows.Add("Trưa", "", "", "");
+            scheduleGridView.Rows.Add("Tối", "", "", "");
 
-// Hàm chuyển ngày thành index cột
-int GetDayColumnIndex(string day)
-{
-    switch (day)
-    {
-        case "Monday": return 0;
-        case "Tuesday": return 1;
-        case "Wednesday": return 2;
-        case "Thursday": return 3;
-        case "Friday": return 4;
-        case "Saturday": return 5;
-        case "Sunday": return 6;
-        default: return -1;
-    }
-}
+            // Đổ dữ liệu vào các ô tương ứng
+            foreach (DataRow row in table.Rows)
+            {
+                string buoi = row["Buoi"].ToString();
+                string thu = row["Thu"].ToString();
+                string dish = row["Dish"].ToString();
+
+                int rowIndex = -1;
+
+                if (buoi == "Sáng") rowIndex = 0;
+                else if (buoi == "Trưa") rowIndex = 1;
+                else if (buoi == "Tối") rowIndex = 2;
+
+                if (rowIndex != -1)
+                {
+                    if (thu == "Thứ 2") scheduleGridView.Rows[rowIndex].Cells[1].Value = dish;
+                    if (thu == "Thứ 3") scheduleGridView.Rows[rowIndex].Cells[2].Value = dish;
+                    if (thu == "Thứ 4") scheduleGridView.Rows[rowIndex].Cells[3].Value = dish;
+                }
+            }
+        }
 
 
 
+
+
+
+        int GetDayColumnIndex(string day)
+        {
+            switch (day)
+            {
+                case "Monday": return 0;
+                case "Tuesday": return 1;
+                case "Wednesday": return 2;
+                case "Thursday": return 3;
+                case "Friday": return 4;
+                case "Saturday": return 5;
+                case "Sunday": return 6;
+                default: return -1;
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            addSchdule f = new addSchdule();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void scheduleGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            main f = new main();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
     }
 }
