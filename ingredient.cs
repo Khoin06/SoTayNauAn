@@ -164,13 +164,13 @@ namespace SoTayNauAn
                 MessageBox.Show("Vui lòng nhập đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            string query = "INSERT INTO NguyenLieu (TenNL, DonViTinh, idst) VALUES (@tenNL, @donViTinh, @idst)";
+            string query = "INSERT INTO NguyenLieu (TenNL, DonViTinh) VALUES (@tenNL, @donViTinh)";
 
             Dictionary<string, object> parameters = new Dictionary<string, object>
 {
     { "@tenNL", ingredientName },
     { "@donViTinh", unit },
-    { "@idst",2 } // Thêm giá trị cho cột Tsct
+
 };
 
 
@@ -231,14 +231,14 @@ namespace SoTayNauAn
                 string originalIngredientName = ingredientGridView.SelectedRows[0].Cells["TenNL"].Value.ToString();
 
                 // Câu truy vấn SQL với tham số
-                string query = "UPDATE NguyenLieu SET TenNL = @newTenNL, DonViTinh = @newDonViTinh WHERE TenNL = @originalTenNL AND idST = @idST";
+                string query = "UPDATE NguyenLieu SET TenNL = @newTenNL, DonViTinh = @newDonViTinh WHERE TenNL = @originalTenNL";
 
                 // Tạo tham số cho câu truy vấn
                 Dictionary<string, object> parameters = new Dictionary<string, object>
     {
         { "@newTenNL", ingredientName },
         { "@newDonViTinh", unit },
-        { "@idST", 2 }, // Gán giá trị cố định cho idST
+     //   { "@idST", 2 }, // Gán giá trị cố định cho idST
         { "@originalTenNL", originalIngredientName }
     };
 
@@ -271,6 +271,11 @@ namespace SoTayNauAn
             {
                 MessageBox.Show("Vui lòng chọn hàng để chỉnh sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
 
         }
     }

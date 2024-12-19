@@ -104,13 +104,13 @@ namespace SoTayNauAn
             // 
             this.findButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.findButton.ForeColor = System.Drawing.Color.White;
-            this.findButton.Location = new System.Drawing.Point(491, 87);
+            this.findButton.Location = new System.Drawing.Point(490, 83);
             this.findButton.Name = "findButton";
             this.findButton.Size = new System.Drawing.Size(100, 30);
             this.findButton.TabIndex = 3;
-            this.findButton.Text = "Find";
+            this.findButton.Text = "Tìm kiếm";
             this.findButton.UseVisualStyleBackColor = false;
-            this.findButton.Click += new System.EventHandler(this.editButton_Click);
+            this.findButton.Click += new System.EventHandler(this.findButton_Click);
             // 
             // deleteButton
             // 
@@ -120,7 +120,7 @@ namespace SoTayNauAn
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(100, 30);
             this.deleteButton.TabIndex = 4;
-            this.deleteButton.Text = "Delete";
+            this.deleteButton.Text = "Xóa";
             this.deleteButton.UseVisualStyleBackColor = false;
             this.deleteButton.Click += new System.EventHandler(this.deleteButton_Click);
             // 
@@ -132,7 +132,7 @@ namespace SoTayNauAn
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(100, 30);
             this.editButton.TabIndex = 6;
-            this.editButton.Text = "Edit";
+            this.editButton.Text = "Chỉnh sửa ";
             this.editButton.UseVisualStyleBackColor = false;
             this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
@@ -144,7 +144,7 @@ namespace SoTayNauAn
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 30);
             this.saveButton.TabIndex = 7;
-            this.saveButton.Text = "Add";
+            this.saveButton.Text = "Thêm";
             this.saveButton.UseVisualStyleBackColor = false;
             this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
@@ -179,9 +179,9 @@ namespace SoTayNauAn
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(76, 192);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 15;
-            this.label3.Text = "Unit";
+            this.label3.Text = "Đơn vị";
             // 
             // label4
             // 
@@ -190,7 +190,8 @@ namespace SoTayNauAn
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 13);
             this.label4.TabIndex = 14;
-            this.label4.Text = "Ingredient-name";
+            this.label4.Text = "Tên nguyên liệu";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox1
             // 
@@ -217,9 +218,9 @@ namespace SoTayNauAn
             this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label5.Location = new System.Drawing.Point(248, 9);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(280, 34);
+            this.label5.Size = new System.Drawing.Size(216, 34);
             this.label5.TabIndex = 16;
-            this.label5.Text = "Cooking handbook";
+            this.label5.Text = "Sổ Tay Nấu Ăn";
             // 
             // label6
             // 
@@ -231,9 +232,9 @@ namespace SoTayNauAn
             this.label6.ForeColor = System.Drawing.Color.White;
             this.label6.Location = new System.Drawing.Point(0, -1);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(134, 35);
+            this.label6.Size = new System.Drawing.Size(158, 35);
             this.label6.TabIndex = 17;
-            this.label6.Text = "Ingredient";
+            this.label6.Text = "Nguyên liệu";
             // 
             // homeButton
             // 
@@ -243,7 +244,7 @@ namespace SoTayNauAn
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(75, 30);
             this.homeButton.TabIndex = 18;
-            this.homeButton.Text = "Home";
+            this.homeButton.Text = "Trang chủ";
             this.homeButton.UseVisualStyleBackColor = false;
             this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
