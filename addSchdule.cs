@@ -131,6 +131,7 @@ namespace SoTayNauAn
             this.button3 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.homeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -346,10 +347,22 @@ namespace SoTayNauAn
             this.textBox2.Size = new System.Drawing.Size(200, 29);
             this.textBox2.TabIndex = 22;
             // 
+            // homeButton
+            // 
+            this.homeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.homeButton.ForeColor = System.Drawing.Color.White;
+            this.homeButton.Location = new System.Drawing.Point(23, 431);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(75, 30);
+            this.homeButton.TabIndex = 23;
+            this.homeButton.Text = "Home";
+            this.homeButton.UseVisualStyleBackColor = false;
+            // 
             // addSchdule
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
-            this.ClientSize = new System.Drawing.Size(768, 448);
+            this.ClientSize = new System.Drawing.Size(768, 482);
+            this.Controls.Add(this.homeButton);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button3);
@@ -397,5 +410,6 @@ namespace SoTayNauAn
         private Button button3;
         private DateTimePicker dateTimePicker1;
         private TextBox textBox2;
+        private Button homeButton;
     }
 }

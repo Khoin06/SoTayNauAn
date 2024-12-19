@@ -42,6 +42,7 @@ namespace SoTayNauAn
             this.searchBox = new System.Windows.Forms.TextBox();
             this.findButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.homeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.recipeGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,10 +160,22 @@ namespace SoTayNauAn
             this.label1.TabIndex = 7;
             this.label1.Text = "Recipe";
             // 
+            // homeButton
+            // 
+            this.homeButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.homeButton.ForeColor = System.Drawing.Color.White;
+            this.homeButton.Location = new System.Drawing.Point(20, 508);
+            this.homeButton.Name = "homeButton";
+            this.homeButton.Size = new System.Drawing.Size(75, 30);
+            this.homeButton.TabIndex = 19;
+            this.homeButton.Text = "Home";
+            this.homeButton.UseVisualStyleBackColor = false;
+            // 
             // recipe
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.homeButton);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.recipeGridView);
@@ -216,5 +229,6 @@ namespace SoTayNauAn
         }
 
         private Label label1;
+        private Button homeButton;
     }
 }
