@@ -21,5 +21,28 @@ namespace SoTayNauAn
         {
 
         }
+
+        private void txtTime_TextChanged(object sender, EventArgs e)
+        {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        }
     }
 }

@@ -184,7 +184,7 @@ namespace SoTayNauAn
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.scheduleGridView.DefaultCellStyle = dataGridViewCellStyle8;
-            this.scheduleGridView.Location = new System.Drawing.Point(69, 110);
+            this.scheduleGridView.Location = new System.Drawing.Point(72, 110);
             this.scheduleGridView.Name = "scheduleGridView";
             this.scheduleGridView.RowHeadersVisible = false;
             this.scheduleGridView.Size = new System.Drawing.Size(482, 200);

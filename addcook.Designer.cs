@@ -81,7 +81,8 @@ namespace SoTayNauAn
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(200, 22);
             this.txtTime.TabIndex = 2;
-            this.txtTime.Text = "Thời gian";
+            this.txtTime.Text = "                         ";
+            this.txtTime.TextChanged += new System.EventHandler(this.txtTime_TextChanged);
             // 
             // txtRate
             // 

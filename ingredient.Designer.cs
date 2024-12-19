@@ -30,7 +30,7 @@ namespace SoTayNauAn
             LoadIngredientList();
         }
 
-        private void ingredientGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+       /* private void ingredientGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.RowIndex >= 0) // Đảm bảo chỉ lấy hàng hợp lệ
             {
@@ -41,7 +41,7 @@ namespace SoTayNauAn
                 textBox2.Text = row.Cells["DonViTinh"].Value.ToString();
                 // Cài đặt tự động điều chỉnh kích thước
             }
-        }
+        }*/
 
 
 
@@ -88,9 +88,9 @@ namespace SoTayNauAn
             this.ingredientGridView.Name = "ingredientGridView";
             this.ingredientGridView.RowHeadersVisible = false;
             this.ingredientGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.ingredientGridView.Size = new System.Drawing.Size(219, 187);
+            this.ingredientGridView.Size = new System.Drawing.Size(203, 187);
             this.ingredientGridView.TabIndex = 1;
-            this.ingredientGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ingredientGridView_CellContentClick_1);
+            this.ingredientGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ingredientGridView_CellClick);
             // 
             // IngredientName
             // 
@@ -110,13 +110,13 @@ namespace SoTayNauAn
             this.findButton.TabIndex = 3;
             this.findButton.Text = "Find";
             this.findButton.UseVisualStyleBackColor = false;
-            this.findButton.Click += new System.EventHandler(this.findButton_Click);
+            this.findButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // deleteButton
             // 
             this.deleteButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.deleteButton.ForeColor = System.Drawing.Color.White;
-            this.deleteButton.Location = new System.Drawing.Point(337, 217);
+            this.deleteButton.Location = new System.Drawing.Point(358, 217);
             this.deleteButton.Name = "deleteButton";
             this.deleteButton.Size = new System.Drawing.Size(100, 30);
             this.deleteButton.TabIndex = 4;
@@ -128,23 +128,25 @@ namespace SoTayNauAn
             // 
             this.editButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.editButton.ForeColor = System.Drawing.Color.White;
-            this.editButton.Location = new System.Drawing.Point(337, 282);
+            this.editButton.Location = new System.Drawing.Point(358, 282);
             this.editButton.Name = "editButton";
             this.editButton.Size = new System.Drawing.Size(100, 30);
             this.editButton.TabIndex = 6;
             this.editButton.Text = "Edit";
             this.editButton.UseVisualStyleBackColor = false;
+            this.editButton.Click += new System.EventHandler(this.editButton_Click);
             // 
             // saveButton
             // 
             this.saveButton.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.saveButton.ForeColor = System.Drawing.Color.White;
-            this.saveButton.Location = new System.Drawing.Point(337, 163);
+            this.saveButton.Location = new System.Drawing.Point(358, 163);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(100, 30);
             this.saveButton.TabIndex = 7;
             this.saveButton.Text = "Add";
             this.saveButton.UseVisualStyleBackColor = false;
+            this.saveButton.Click += new System.EventHandler(this.saveButton_Click);
             // 
             // unitTextBox
             // 
@@ -154,7 +156,7 @@ namespace SoTayNauAn
             this.unitTextBox.Name = "unitTextBox";
             this.unitTextBox.Size = new System.Drawing.Size(247, 22);
             this.unitTextBox.TabIndex = 9;
-            this.unitTextBox.TextChanged += new System.EventHandler(this.unitTextBox_TextChanged);
+            this.unitTextBox.KeyDown += new System.Windows.Forms.KeyEventHandler(this.unitTextBox_KeyDown);
             // 
             // label1
             // 
@@ -175,7 +177,7 @@ namespace SoTayNauAn
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(74, 204);
+            this.label3.Location = new System.Drawing.Point(76, 192);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(26, 13);
             this.label3.TabIndex = 15;
@@ -184,7 +186,7 @@ namespace SoTayNauAn
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(74, 175);
+            this.label4.Location = new System.Drawing.Point(76, 163);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 13);
             this.label4.TabIndex = 14;
@@ -194,7 +196,7 @@ namespace SoTayNauAn
             // 
             this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
             this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(175, 175);
+            this.textBox1.Location = new System.Drawing.Point(177, 163);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(146, 22);
             this.textBox1.TabIndex = 12;
@@ -203,7 +205,7 @@ namespace SoTayNauAn
             // 
             this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
             this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(175, 201);
+            this.textBox2.Location = new System.Drawing.Point(177, 189);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(146, 22);
             this.textBox2.TabIndex = 13;
