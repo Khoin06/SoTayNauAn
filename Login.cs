@@ -34,7 +34,7 @@ namespace QuanLyQuanCafe
             if (Login(userName, passWord))
             {
                 MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                mainf = new main();
+                main f = new main();
                 this.Hide();
                 f.ShowDialog();
                 this.Show();
@@ -47,7 +47,7 @@ namespace QuanLyQuanCafe
 
         private bool Login(string userName, string passWord)
         {
-            string connectionString = @"Data Source=MINH-DUCK\SQLEXPRESS;Initial Catalog=CookBook;Integrated Security=True";
+            string connectionString = @"Data Source=DESKTOP-0FKCP5H;Initial Catalog=CookBook;User ID=sa;Password=123456";
             string query = "SELECT * FROM Nguoidung WHERE TK = @userName AND MK = @passWord";
 
             using (SqlConnection connection = new SqlConnection(connectionString))

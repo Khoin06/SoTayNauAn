@@ -32,7 +32,7 @@ namespace SoTayNauAn
             }
 
             // Kết nối database và kiểm tra
-            string connectionString = @"Data Source=MINH-DUCK\SQLEXPRESS;Initial Catalog=CookBook;Integrated Security=True";
+            string connectionString = @"Data Source=DESKTOP-0FKCP5H;Initial Catalog=CookBook;User ID=sa;Password=123456";
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 try
@@ -63,6 +63,10 @@ namespace SoTayNauAn
                         if (rowsAffected > 0)
                         {
                             MessageBox.Show("Đăng ký thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            fLogin f = new fLogin();
+                            this.Hide();
+                            f.ShowDialog();
+                            this.Show();
                         }
                         else
                         {
@@ -83,7 +87,8 @@ namespace SoTayNauAn
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            ExitApplication();
+            // Hiển thị hộp thoại xác nhận trước khi thoát
+            Environment.Exit(0);
         }
 
         private void txbUserName_TextChanged(object sender, EventArgs e)
@@ -95,5 +100,6 @@ namespace SoTayNauAn
         {
             string password = txbPassWord.Text;
         }
+
     }
 }
