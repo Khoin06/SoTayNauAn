@@ -21,22 +21,27 @@ namespace SoTayNauAn
         void LoadAccountList()
         {
             string query = @"
-        SELECT 
-            m.TenMenu AS DayAndSession,
-            ct.TenCT AS Dish,
-            CASE 
-                WHEN m.TenMenu LIKE '%Sáng' THEN N'Sáng'
-                WHEN m.TenMenu LIKE '%Trưa' THEN N'Trưa'
-                WHEN m.TenMenu LIKE '%Tối' THEN N'Tối'
-            END AS Buoi,
-            CASE 
-                WHEN m.TenMenu LIKE '%Thứ 2%' THEN N'Thứ 2'
-                WHEN m.TenMenu LIKE '%Thứ 3%' THEN N'Thứ 3'
-                WHEN m.TenMenu LIKE '%Thứ 4%' THEN N'Thứ 4'
-            END AS Thu
-        FROM MENU m
-        JOIN ChitietM ct ON m.TenMenu = ct.TenMenu
-        ORDER BY Thu, Buoi";
+SELECT 
+    m.TenMenu AS DayAndSession,
+    ct.TenCT AS Dish,
+    CASE
+        WHEN ct.Buoi = N'Sáng' THEN N'Sáng'
+        WHEN ct.Buoi = N'Trưa' THEN N'Trưa'
+        WHEN ct.Buoi = N'Tối' THEN N'Tối'
+        ELSE N'Không xác định'
+    END AS Buoi,
+    CASE
+        WHEN m.TenMenu LIKE '%Thứ 2%' THEN N'Thứ 2'
+        WHEN m.TenMenu LIKE '%Thứ 3%' THEN N'Thứ 3'
+        WHEN m.TenMenu LIKE '%Thứ 4%' THEN N'Thứ 4'
+        WHEN m.TenMenu LIKE '%Thứ 5%' THEN N'Thứ 5'
+        WHEN m.TenMenu LIKE '%Thứ 6%' THEN N'Thứ 6'
+        WHEN m.TenMenu LIKE '%Thứ 7%' THEN N'Thứ 7'
+        ELSE N'Không xác định'
+    END AS Thu
+FROM MENU m
+JOIN ChitietM ct ON m.TenMenu = ct.TenMenu
+ORDER BY Thu, Buoi;";
 
             dataProvider data = new dataProvider();
             DataTable table = data.ExecuteQuery(query, new object[] { });
@@ -48,6 +53,9 @@ namespace SoTayNauAn
                 scheduleGridView.Columns.Add("Thu2", "Thứ 2");
                 scheduleGridView.Columns.Add("Thu3", "Thứ 3");
                 scheduleGridView.Columns.Add("Thu4", "Thứ 4");
+                scheduleGridView.Columns.Add("Thu5", "Thứ 5");
+                scheduleGridView.Columns.Add("Thu6", "Thứ 6");
+                scheduleGridView.Columns.Add("Thu7", "Thứ 7");
             }
 
             // Xóa dữ liệu cũ
@@ -63,7 +71,7 @@ namespace SoTayNauAn
             {
                 string buoi = row["Buoi"].ToString();
                 string thu = row["Thu"].ToString();
-                string dish = row["Dish"].ToString();
+                string dish = row["Dish"] != DBNull.Value ? row["Dish"].ToString() : ""; // Xử lý null
 
                 int rowIndex = -1;
 
@@ -74,12 +82,16 @@ namespace SoTayNauAn
                 if (rowIndex != -1)
                 {
                     if (thu == "Thứ 2") scheduleGridView.Rows[rowIndex].Cells[1].Value = dish;
-                    if (thu == "Thứ 3") scheduleGridView.Rows[rowIndex].Cells[2].Value = dish;
-                    if (thu == "Thứ 4") scheduleGridView.Rows[rowIndex].Cells[3].Value = dish;
+                    else if (thu == "Thứ 3") scheduleGridView.Rows[rowIndex].Cells[2].Value = dish;
+                    else if (thu == "Thứ 4") scheduleGridView.Rows[rowIndex].Cells[3].Value = dish;
+                    else if (thu == "Thứ 5") scheduleGridView.Rows[rowIndex].Cells[3].Value = dish;
+                    else if (thu == "Thứ 6") scheduleGridView.Rows[rowIndex].Cells[3].Value = dish;
+                    else if (thu == "Thứ 7") scheduleGridView.Rows[rowIndex].Cells[3].Value = dish;
+
+
                 }
             }
         }
-
 
 
 
@@ -102,14 +114,16 @@ namespace SoTayNauAn
 
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.scheduleGridView = new System.Windows.Forms.DataGridView();
@@ -122,14 +136,7 @@ namespace SoTayNauAn
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.button3 = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.homeButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleGridView)).BeginInit();
@@ -142,9 +149,9 @@ namespace SoTayNauAn
             this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label2.Location = new System.Drawing.Point(241, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(280, 34);
+            this.label2.Size = new System.Drawing.Size(224, 34);
             this.label2.TabIndex = 10;
-            this.label2.Text = "Cooking handbook";
+            this.label2.Text = "Sổ Tay Nấu Ăn ";
             // 
             // label1
             // 
@@ -156,10 +163,11 @@ namespace SoTayNauAn
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(-1, -1);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(111, 35);
+            this.label1.Size = new System.Drawing.Size(136, 35);
             this.label1.TabIndex = 11;
-            this.label1.Text = "Schdule";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+
+            this.label1.Text = "Lịch trình ";
+
             // 
             // scheduleGridView
             // 
@@ -177,18 +185,20 @@ namespace SoTayNauAn
             this.dataGridViewTextBoxColumn5,
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.scheduleGridView.DefaultCellStyle = dataGridViewCellStyle16;
-            this.scheduleGridView.Location = new System.Drawing.Point(69, 110);
+
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.scheduleGridView.DefaultCellStyle = dataGridViewCellStyle24;
+            this.scheduleGridView.Location = new System.Drawing.Point(77, 110);
+
             this.scheduleGridView.Name = "scheduleGridView";
             this.scheduleGridView.RowHeadersVisible = false;
-            this.scheduleGridView.Size = new System.Drawing.Size(482, 200);
+            this.scheduleGridView.Size = new System.Drawing.Size(496, 200);
             this.scheduleGridView.TabIndex = 12;
             // 
             // dataGridViewTextBoxColumn8
@@ -198,51 +208,66 @@ namespace SoTayNauAn
             // 
             // dataGridViewTextBoxColumn1
             // 
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle9;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Monday";
+
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle17;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Thứ 2";
+
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             // 
             // dataGridViewTextBoxColumn2
             // 
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle10;
-            this.dataGridViewTextBoxColumn2.HeaderText = "Tuesday";
+
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle18;
+            this.dataGridViewTextBoxColumn2.HeaderText = "Thứ 3";
+
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             // 
             // dataGridViewTextBoxColumn3
             // 
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle11;
-            this.dataGridViewTextBoxColumn3.HeaderText = "Wednesday";
+
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridViewTextBoxColumn3.HeaderText = "Thứ 4";
+
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             // 
             // dataGridViewTextBoxColumn4
             // 
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle12;
-            this.dataGridViewTextBoxColumn4.HeaderText = "Thursday";
+
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridViewTextBoxColumn4.HeaderText = "Thứ 5";
+
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             // 
             // dataGridViewTextBoxColumn5
             // 
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle13;
-            this.dataGridViewTextBoxColumn5.HeaderText = "Friday";
+
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle21;
+            this.dataGridViewTextBoxColumn5.HeaderText = "Thứ 6";
+
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             // 
             // dataGridViewTextBoxColumn6
             // 
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle14;
-            this.dataGridViewTextBoxColumn6.HeaderText = "Saturday";
+
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle22;
+            this.dataGridViewTextBoxColumn6.HeaderText = "Thứ 7";
+
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             // 
             // dataGridViewTextBoxColumn7
             // 
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle15;
-            this.dataGridViewTextBoxColumn7.HeaderText = "Sunday";
+
+
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle23;
+            this.dataGridViewTextBoxColumn7.HeaderText = "Chủ nhật";
+
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             // 
             // button1
@@ -253,73 +278,9 @@ namespace SoTayNauAn
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 30);
             this.button1.TabIndex = 13;
-            this.button1.Text = "Save";
+            this.button1.Text = "Lưu";
             this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.Gainsboro;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(430, 75);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(166, 29);
-            this.textBox1.TabIndex = 14;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Narrow", 14.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(355, 78);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 23);
-            this.label3.TabIndex = 15;
-            this.label3.Text = "Name";
-            // 
-            // button2
-            // 
-            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.button2.ForeColor = System.Drawing.Color.White;
-            this.button2.Location = new System.Drawing.Point(594, 231);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 30);
-            this.button2.TabIndex = 16;
-            this.button2.Text = "Delete";
-            this.button2.UseVisualStyleBackColor = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(151, 336);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(70, 17);
-            this.radioButton1.TabIndex = 17;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Breakfast";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(151, 405);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(56, 17);
-            this.radioButton2.TabIndex = 18;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Dinner";
-            this.radioButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.radioButton2.UseVisualStyleBackColor = true;
-            // 
-            // radioButton3
-            // 
-            this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(151, 371);
-            this.radioButton3.Name = "radioButton3";
-            this.radioButton3.Size = new System.Drawing.Size(55, 17);
-            this.radioButton3.TabIndex = 19;
-            this.radioButton3.TabStop = true;
-            this.radioButton3.Text = "Lunch";
-            this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.CheckedChanged += new System.EventHandler(this.radioButton3_CheckedChanged);
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button3
             // 
@@ -329,17 +290,11 @@ namespace SoTayNauAn
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 30);
             this.button3.TabIndex = 20;
-            this.button3.Text = "Add";
+            this.button3.Text = "Thêm";
             this.button3.UseVisualStyleBackColor = false;
             // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(266, 332);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 21;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
-            // 
+
+
             // textBox2
             // 
             this.textBox2.BackColor = System.Drawing.Color.Gainsboro;
@@ -357,8 +312,9 @@ namespace SoTayNauAn
             this.homeButton.Name = "homeButton";
             this.homeButton.Size = new System.Drawing.Size(75, 30);
             this.homeButton.TabIndex = 23;
-            this.homeButton.Text = "Home";
+            this.homeButton.Text = "Trang chủ ";
             this.homeButton.UseVisualStyleBackColor = false;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
             // addSchdule
             // 
@@ -366,14 +322,7 @@ namespace SoTayNauAn
             this.ClientSize = new System.Drawing.Size(768, 482);
             this.Controls.Add(this.homeButton);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.radioButton3);
-            this.Controls.Add(this.radioButton2);
-            this.Controls.Add(this.radioButton1);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.scheduleGridView);
             this.Controls.Add(this.label1);
@@ -397,12 +346,6 @@ namespace SoTayNauAn
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private Button button1;
-        private TextBox textBox1;
-        private Label label3;
-        private Button button2;
-        private RadioButton radioButton1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
 
         private void radioButton3_CheckedChanged(object sender, EventArgs e)
         {
@@ -410,16 +353,20 @@ namespace SoTayNauAn
         }
 
         private Button button3;
-        private DateTimePicker dateTimePicker1;
         private TextBox textBox2;
         private Button homeButton;
 
-        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
-        {
 
+        private void homeButton_Click(object sender, EventArgs e)
+        {
+            main f = new main();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
+
         {
 
         }

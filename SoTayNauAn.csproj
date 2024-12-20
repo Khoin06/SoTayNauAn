@@ -59,6 +59,12 @@
       <DependentUpon>addSchdule.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\dataProvider.cs" />
+    <Compile Include="editSchdule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="editSchdule.Designer.cs">
+      <DependentUpon>editSchdule.cs</DependentUpon>
+    </Compile>
     <Compile Include="fAccountProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     <EmbeddedResource Include="addSchdule.resx">
       <DependentUpon>addSchdule.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="editSchdule.resx">
+      <DependentUpon>editSchdule.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="fAccountProfile.resx">
       <DependentUpon>fAccountProfile.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +147,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="recipe.resx">
       <DependentUpon>recipe.cs</DependentUpon>
@@ -163,6 +173,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="DTO\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="466749374_9328661687209978_4266852375824735389_n.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

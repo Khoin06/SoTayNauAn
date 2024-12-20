@@ -99,9 +99,9 @@ namespace SoTayNauAn
             this.txtTime.Name = "txtTime";
             this.txtTime.Size = new System.Drawing.Size(200, 29);
             this.txtTime.TabIndex = 2;
-            this.txtTime.Text = "Thời gian";
-            this.txtTime.Enter += new System.EventHandler(this.txtTime_Enter);
-            this.txtTime.Leave += new System.EventHandler(this.txtTime_Leave);
+
+
+
             // 
             // txtRate
             // 
