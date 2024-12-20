@@ -69,6 +69,7 @@ namespace SoTayNauAn
             this.recipeGridView.RowHeadersVisible = false;
             this.recipeGridView.Size = new System.Drawing.Size(605, 300);
             this.recipeGridView.TabIndex = 1;
+            this.recipeGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.recipeGridView_CellContentClick);
             // 
             // DishName
             // 

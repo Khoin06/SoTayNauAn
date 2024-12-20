@@ -1,5 +1,6 @@
 ﻿using System.Windows.Forms;
 using System;
+using System.Drawing;
 
 namespace SoTayNauAn
 {
@@ -31,142 +32,126 @@ namespace SoTayNauAn
         /// </summary>
         private void InitializeComponent()
         {
+            this.txtImage = new System.Windows.Forms.TextBox();
             this.txtDishName = new System.Windows.Forms.TextBox();
             this.txtFormulaName = new System.Windows.Forms.TextBox();
             this.txtTime = new System.Windows.Forms.TextBox();
             this.txtRate = new System.Windows.Forms.TextBox();
             this.txtSteps = new System.Windows.Forms.TextBox();
-            this.cbIngredient = new System.Windows.Forms.ComboBox();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.btnAddIngredient = new System.Windows.Forms.Button();
-            this.dgvIngredients = new System.Windows.Forms.DataGridView();
-            this.IngredientColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.QuantityColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnSave = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.homeButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvIngredients)).BeginInit();
+            this.back = new System.Windows.Forms.Button();
+            this.lstSuggestions = new System.Windows.Forms.ListBox();
+        
             this.SuspendLayout();
+            // 
+            // txtImage
+            // 
+            this.txtImage.BackColor = System.Drawing.Color.Gainsboro;
+            this.txtImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtImage.ForeColor = System.Drawing.Color.Gray;
+            this.txtImage.Location = new System.Drawing.Point(137, 322);
+            this.txtImage.Name = "txtImage";
+            this.txtImage.Size = new System.Drawing.Size(200, 29);
+            this.txtImage.TabIndex = 14;
+            this.txtImage.Text = "Hình ảnh";
+            this.txtImage.TextChanged += new System.EventHandler(this.txtImage_TextChanged);
+            this.txtImage.Enter += new System.EventHandler(this.txtImage_Enter);
+            this.txtImage.Leave += new System.EventHandler(this.txtImage_Leave);
             // 
             // txtDishName
             // 
             this.txtDishName.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtDishName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDishName.ForeColor = System.Drawing.Color.Transparent;
-            this.txtDishName.Location = new System.Drawing.Point(87, 59);
+            this.txtDishName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtDishName.ForeColor = System.Drawing.Color.Gray;
+            this.txtDishName.Location = new System.Drawing.Point(137, 106);
             this.txtDishName.Name = "txtDishName";
-            this.txtDishName.Size = new System.Drawing.Size(200, 22);
+            this.txtDishName.Size = new System.Drawing.Size(200, 29);
             this.txtDishName.TabIndex = 0;
             this.txtDishName.Text = "Tên món ăn";
             this.txtDishName.TextChanged += new System.EventHandler(this.txtDishName_TextChanged);
+            this.txtDishName.Enter += new System.EventHandler(this.txtDishName_Enter);
+            this.txtDishName.Leave += new System.EventHandler(this.txtDishName_Leave);
             // 
             // txtFormulaName
             // 
             this.txtFormulaName.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtFormulaName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtFormulaName.ForeColor = System.Drawing.Color.Transparent;
-            this.txtFormulaName.Location = new System.Drawing.Point(87, 89);
+            this.txtFormulaName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtFormulaName.ForeColor = System.Drawing.Color.Gray;
+            this.txtFormulaName.Location = new System.Drawing.Point(137, 159);
             this.txtFormulaName.Name = "txtFormulaName";
-            this.txtFormulaName.Size = new System.Drawing.Size(200, 22);
+            this.txtFormulaName.Size = new System.Drawing.Size(200, 29);
             this.txtFormulaName.TabIndex = 1;
             this.txtFormulaName.Text = "Tên công thức";
+            this.txtFormulaName.TextChanged += new System.EventHandler(this.txtFormulaName_TextChanged);
+            this.txtFormulaName.Enter += new System.EventHandler(this.txtFormulaName_Enter);
+            this.txtFormulaName.Leave += new System.EventHandler(this.txtFormulaName_Leave);
             // 
             // txtTime
             // 
             this.txtTime.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTime.ForeColor = System.Drawing.Color.Transparent;
-            this.txtTime.Location = new System.Drawing.Point(87, 119);
+            this.txtTime.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtTime.ForeColor = System.Drawing.Color.Gray;
+            this.txtTime.Location = new System.Drawing.Point(137, 215);
             this.txtTime.Name = "txtTime";
-            this.txtTime.Size = new System.Drawing.Size(200, 22);
+            this.txtTime.Size = new System.Drawing.Size(200, 29);
             this.txtTime.TabIndex = 2;
-            this.txtTime.Text = "                         ";
-            this.txtTime.TextChanged += new System.EventHandler(this.txtTime_TextChanged);
+
+
+
             // 
             // txtRate
             // 
             this.txtRate.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtRate.ForeColor = System.Drawing.Color.Transparent;
-            this.txtRate.Location = new System.Drawing.Point(87, 149);
+            this.txtRate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtRate.ForeColor = System.Drawing.Color.Gray;
+            this.txtRate.Location = new System.Drawing.Point(137, 273);
             this.txtRate.Name = "txtRate";
-            this.txtRate.Size = new System.Drawing.Size(200, 22);
+            this.txtRate.Size = new System.Drawing.Size(200, 29);
             this.txtRate.TabIndex = 3;
             this.txtRate.Text = "Đánh giá";
+            this.txtRate.TextChanged += new System.EventHandler(this.txtRate_TextChanged);
+            this.txtRate.Enter += new System.EventHandler(this.txtRate_Enter);
+            this.txtRate.Leave += new System.EventHandler(this.txtRate_Leave);
             // 
             // txtSteps
             // 
             this.txtSteps.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtSteps.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtSteps.ForeColor = System.Drawing.Color.White;
-            this.txtSteps.Location = new System.Drawing.Point(317, 59);
+            this.txtSteps.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtSteps.ForeColor = System.Drawing.Color.Gray;
+            this.txtSteps.Location = new System.Drawing.Point(367, 106);
             this.txtSteps.Multiline = true;
             this.txtSteps.Name = "txtSteps";
-            this.txtSteps.Size = new System.Drawing.Size(300, 110);
+            this.txtSteps.Size = new System.Drawing.Size(300, 229);
             this.txtSteps.TabIndex = 4;
             this.txtSteps.Text = "Các bước thực hiện";
-            // 
-            // cbIngredient
-            // 
-            this.cbIngredient.BackColor = System.Drawing.Color.Gainsboro;
-            this.cbIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbIngredient.ForeColor = System.Drawing.Color.Transparent;
-            this.cbIngredient.FormattingEnabled = true;
-            this.cbIngredient.Location = new System.Drawing.Point(87, 179);
-            this.cbIngredient.Name = "cbIngredient";
-            this.cbIngredient.Size = new System.Drawing.Size(140, 24);
-            this.cbIngredient.TabIndex = 5;
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.BackColor = System.Drawing.Color.Gainsboro;
-            this.txtQuantity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtQuantity.ForeColor = System.Drawing.Color.Transparent;
-            this.txtQuantity.Location = new System.Drawing.Point(237, 179);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(100, 22);
-            this.txtQuantity.TabIndex = 6;
+            this.txtSteps.Enter += new System.EventHandler(this.txtSteps_Enter);
+            this.txtSteps.Leave += new System.EventHandler(this.txtSteps_Leave);
             // 
             // btnAddIngredient
             // 
             this.btnAddIngredient.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnAddIngredient.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddIngredient.ForeColor = System.Drawing.Color.White;
-            this.btnAddIngredient.Location = new System.Drawing.Point(347, 179);
+            this.btnAddIngredient.Location = new System.Drawing.Point(137, 369);
             this.btnAddIngredient.Name = "btnAddIngredient";
-            this.btnAddIngredient.Size = new System.Drawing.Size(75, 23);
+            this.btnAddIngredient.Size = new System.Drawing.Size(154, 41);
             this.btnAddIngredient.TabIndex = 7;
-            this.btnAddIngredient.Text = "Thêm";
+            this.btnAddIngredient.Text = "Thêm Nguyên Liệu";
             this.btnAddIngredient.UseVisualStyleBackColor = false;
-            // 
-            // dgvIngredients
-            // 
-            this.dgvIngredients.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvIngredients.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.IngredientColumn,
-            this.QuantityColumn});
-            this.dgvIngredients.Location = new System.Drawing.Point(87, 219);
-            this.dgvIngredients.Name = "dgvIngredients";
-            this.dgvIngredients.Size = new System.Drawing.Size(400, 150);
-            this.dgvIngredients.TabIndex = 8;
-            // 
-            // IngredientColumn
-            // 
-            this.IngredientColumn.HeaderText = "Nguyên liệu";
-            this.IngredientColumn.Name = "IngredientColumn";
-            // 
-            // QuantityColumn
-            // 
-            this.QuantityColumn.HeaderText = "Số lượng";
-            this.QuantityColumn.Name = "QuantityColumn";
+            this.btnAddIngredient.Click += new System.EventHandler(this.btnAddIngredient_Click);
             // 
             // btnSave
             // 
             this.btnSave.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(87, 389);
+            this.btnSave.Location = new System.Drawing.Point(367, 369);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(100, 30);
+            this.btnSave.Size = new System.Drawing.Size(141, 41);
             this.btnSave.TabIndex = 9;
             this.btnSave.Text = "Lưu công thức";
             this.btnSave.UseVisualStyleBackColor = false;
@@ -190,7 +175,7 @@ namespace SoTayNauAn
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Arial", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.titleLabel.Location = new System.Drawing.Point(182, 22);
+            this.titleLabel.Location = new System.Drawing.Point(223, 26);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(280, 34);
             this.titleLabel.TabIndex = 11;
@@ -206,49 +191,70 @@ namespace SoTayNauAn
             this.homeButton.TabIndex = 12;
             this.homeButton.Text = "Home";
             this.homeButton.UseVisualStyleBackColor = false;
+            this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
+            // 
+            // back
+            // 
+            this.back.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.back.ForeColor = System.Drawing.Color.White;
+            this.back.Location = new System.Drawing.Point(112, 445);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(75, 30);
+            this.back.TabIndex = 13;
+            this.back.Text = "Back";
+            this.back.UseVisualStyleBackColor = false;
+            this.back.Click += new System.EventHandler(this.back_Click);
+            // 
+            // lstSuggestions
+            // 
+            this.lstSuggestions.FormattingEnabled = true;
+            this.lstSuggestions.ItemHeight = 16;
+            this.lstSuggestions.Location = new System.Drawing.Point(137, 134);
+            this.lstSuggestions.Name = "lstSuggestions";
+            this.lstSuggestions.Size = new System.Drawing.Size(200, 116);
+            this.lstSuggestions.TabIndex = 1;
+            this.lstSuggestions.Visible = false;
+            this.lstSuggestions.Click += new System.EventHandler(this.lstSuggestions_Click);
             // 
             // addcook
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(760, 487);
+            this.Controls.Add(this.back);
             this.Controls.Add(this.homeButton);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnAddIngredient);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtDishName);
             this.Controls.Add(this.txtFormulaName);
             this.Controls.Add(this.txtTime);
             this.Controls.Add(this.txtRate);
+            this.Controls.Add(this.txtImage);
             this.Controls.Add(this.txtSteps);
-            this.Controls.Add(this.cbIngredient);
-            this.Controls.Add(this.txtQuantity);
-            this.Controls.Add(this.btnAddIngredient);
-            this.Controls.Add(this.dgvIngredients);
-            this.Controls.Add(this.btnSave);
+            this.Controls.Add(this.lstSuggestions);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ForeColor = System.Drawing.Color.Transparent;
             this.Name = "addcook";
             this.Text = "Cooking Handbook";
-            ((System.ComponentModel.ISupportInitialize)(this.dgvIngredients)).EndInit();
+            this.Load += new System.EventHandler(this.addcook_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
-
         private System.Windows.Forms.TextBox txtDishName;
         private System.Windows.Forms.TextBox txtFormulaName;
+        private System.Windows.Forms.TextBox txtImage;
         private System.Windows.Forms.TextBox txtTime;
         private System.Windows.Forms.TextBox txtRate;
         private System.Windows.Forms.TextBox txtSteps;
-        private System.Windows.Forms.ComboBox cbIngredient;
-        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.Button btnAddIngredient;
-        private System.Windows.Forms.DataGridView dgvIngredients;
-        private System.Windows.Forms.DataGridViewTextBoxColumn IngredientColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn QuantityColumn;
         private System.Windows.Forms.Button btnSave;
         private Label label1;
         private Label titleLabel;
         private Button homeButton;
+        private Button back;
+        private ListBox lstSuggestions;
     }
 
     #endregion

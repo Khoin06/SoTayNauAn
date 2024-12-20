@@ -1,14 +1,9 @@
-﻿using SoTayNauAn.DAO;
-using System;
-using System.Collections;
+
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using SoTayNauAn.DAO;
 
 namespace SoTayNauAn
 {
@@ -119,6 +114,7 @@ namespace SoTayNauAn
                 // Lấy chuỗi tìm kiếm
                 string searchText = unitTextBox.Text.Trim();
 
+
                 // Nếu TextBox trống, hiển thị toàn bộ dữ liệu
                 if (string.IsNullOrEmpty(searchText))
                 {
@@ -126,6 +122,7 @@ namespace SoTayNauAn
                     string query = "SELECT TenNL, DonViTinh FROM NguyenLieu";
                     dataProvider dataProvider = new dataProvider();
                     DataTable originalDataTable = dataProvider.ExecuteQuery(query, new object[] { });
+
 
                     // Kiểm tra nếu không có dữ liệu từ cơ sở dữ liệu
                     if (originalDataTable == null || originalDataTable.Rows.Count == 0)
@@ -152,7 +149,7 @@ namespace SoTayNauAn
 
 
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void addIngredient_buton(object sender, EventArgs e)
         {
             // Lấy giá trị từ các ô văn bản
             string ingredientName = textBox1.Text.Trim();
