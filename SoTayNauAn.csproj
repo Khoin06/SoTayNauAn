@@ -59,12 +59,6 @@
       <DependentUpon>addSchdule.cs</DependentUpon>
     </Compile>
     <Compile Include="DAO\dataProvider.cs" />
-    <Compile Include="editSchdule.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="editSchdule.Designer.cs">
-      <DependentUpon>editSchdule.cs</DependentUpon>
-    </Compile>
     <Compile Include="fAccountProfile.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -120,9 +114,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="addSchdule.resx">
       <DependentUpon>addSchdule.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="editSchdule.resx">
-      <DependentUpon>editSchdule.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fAccountProfile.resx">
       <DependentUpon>fAccountProfile.cs</DependentUpon>

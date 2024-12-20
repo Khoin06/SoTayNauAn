@@ -115,14 +115,25 @@ ORDER BY Thu, Buoi;";
         private void InitializeComponent()
         {
 
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+
+
+ ///           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+ ///           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+ ///           System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+  ///          System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+   ///         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+   ///         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+   ///         System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+  ///          System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+
 
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -139,6 +150,7 @@ ORDER BY Thu, Buoi;";
             this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.homeButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.scheduleGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -186,14 +198,25 @@ ORDER BY Thu, Buoi;";
             this.dataGridViewTextBoxColumn6,
             this.dataGridViewTextBoxColumn7});
 
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.scheduleGridView.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.scheduleGridView.DefaultCellStyle = dataGridViewCellStyle8;
+
+
+// /            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+//  /           dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+//  /           dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+//  /           dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.ControlText;
+//  /           dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+//   /          dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+//   /          dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+//  /           this.scheduleGridView.DefaultCellStyle = dataGridViewCellStyle24;
+
             this.scheduleGridView.Location = new System.Drawing.Point(77, 110);
 
             this.scheduleGridView.Name = "scheduleGridView";
@@ -209,8 +232,13 @@ ORDER BY Thu, Buoi;";
             // dataGridViewTextBoxColumn1
             // 
 
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+
+
+          ///  dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+          ///  this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle17;
+
             this.dataGridViewTextBoxColumn1.HeaderText = "Thứ 2";
 
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
@@ -218,8 +246,13 @@ ORDER BY Thu, Buoi;";
             // dataGridViewTextBoxColumn2
             // 
 
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle2;
+
+
+          ///  dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+          ///  this.dataGridViewTextBoxColumn2.DefaultCellStyle = dataGridViewCellStyle18;
+
             this.dataGridViewTextBoxColumn2.HeaderText = "Thứ 3";
 
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
@@ -227,8 +260,13 @@ ORDER BY Thu, Buoi;";
             // dataGridViewTextBoxColumn3
             // 
 
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle3;
+
+
+           /// dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+           /// this.dataGridViewTextBoxColumn3.DefaultCellStyle = dataGridViewCellStyle19;
+
             this.dataGridViewTextBoxColumn3.HeaderText = "Thứ 4";
 
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
@@ -236,8 +274,13 @@ ORDER BY Thu, Buoi;";
             // dataGridViewTextBoxColumn4
             // 
 
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle4;
+
+
+           /// dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+          ///  this.dataGridViewTextBoxColumn4.DefaultCellStyle = dataGridViewCellStyle20;
+
             this.dataGridViewTextBoxColumn4.HeaderText = "Thứ 5";
 
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
@@ -245,8 +288,13 @@ ORDER BY Thu, Buoi;";
             // dataGridViewTextBoxColumn5
             // 
 
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle5;
+
+
+//  //           dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+//   //          this.dataGridViewTextBoxColumn5.DefaultCellStyle = dataGridViewCellStyle21;
+
             this.dataGridViewTextBoxColumn5.HeaderText = "Thứ 6";
 
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
@@ -254,8 +302,10 @@ ORDER BY Thu, Buoi;";
             // dataGridViewTextBoxColumn6
             // 
 
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle22;
+
+//             dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+//             this.dataGridViewTextBoxColumn6.DefaultCellStyle = dataGridViewCellStyle22;
+
             this.dataGridViewTextBoxColumn6.HeaderText = "Thứ 7";
 
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
@@ -264,8 +314,10 @@ ORDER BY Thu, Buoi;";
             // 
 
 
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle23;
+
+//             dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+//             this.dataGridViewTextBoxColumn7.DefaultCellStyle = dataGridViewCellStyle23;
+
             this.dataGridViewTextBoxColumn7.HeaderText = "Chủ nhật";
 
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
@@ -316,10 +368,22 @@ ORDER BY Thu, Buoi;";
             this.homeButton.UseVisualStyleBackColor = false;
             this.homeButton.Click += new System.EventHandler(this.homeButton_Click);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.button2.ForeColor = System.Drawing.Color.White;
+            this.button2.Location = new System.Drawing.Point(594, 244);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 30);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "Xóa";
+            this.button2.UseVisualStyleBackColor = false;
+            // 
             // addSchdule
             // 
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(224)))), ((int)(((byte)(192)))));
             this.ClientSize = new System.Drawing.Size(768, 482);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.homeButton);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button3);
@@ -370,5 +434,7 @@ ORDER BY Thu, Buoi;";
         {
 
         }
+
+        private Button button2;
     }
 }

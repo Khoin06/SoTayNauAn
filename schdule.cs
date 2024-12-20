@@ -209,10 +209,7 @@ ORDER BY Thu, Buoi;";
 
         private void editButton_Click(object sender, EventArgs e)
         {
-            editSchdule f = new editSchdule();
-            this.Hide();
-            f.ShowDialog();
-            this.Show();
+
         }
     }
 }
