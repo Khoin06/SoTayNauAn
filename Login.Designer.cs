@@ -62,22 +62,22 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(163)));
             this.label4.ForeColor = System.Drawing.SystemColors.ActiveBorder;
-            this.label4.Location = new System.Drawing.Point(247, 193);
+            this.label4.Location = new System.Drawing.Point(260, 193);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 14);
             this.label4.TabIndex = 5;
-            this.label4.Text = "Sign up ";
+            this.label4.Text = "Đăng kí ";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(163)));
-            this.label3.Location = new System.Drawing.Point(102, 193);
+            this.label3.Location = new System.Drawing.Point(86, 193);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 14);
+            this.label3.Size = new System.Drawing.Size(168, 14);
             this.label3.TabIndex = 2;
-            this.label3.Text = "Don\'t have an account ? ";
+            this.label3.Text = "Nếu bạn không có tài khoản ?";
             // 
             // btnLogin
             // 

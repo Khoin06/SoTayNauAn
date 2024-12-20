@@ -1,4 +1,5 @@
-﻿using System;
+﻿using QuanLyQuanCafe;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -36,6 +37,14 @@ namespace SoTayNauAn
         private void label3_Click(object sender, EventArgs e)
         {
             schdule f = new schdule();
+            this.Hide();
+            f.ShowDialog();
+            this.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            fLogin f = new fLogin();
             this.Hide();
             f.ShowDialog();
             this.Show();
