@@ -1,13 +1,9 @@
-﻿using SoTayNauAn.DAO;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+using SoTayNauAn.DAO;
 
 namespace SoTayNauAn
 {
@@ -96,7 +92,7 @@ namespace SoTayNauAn
         private void unitTextBox_TextChanged(object sender, EventArgs e)
         {
 
-                string searchText = searchBox.Text.ToLower(); // Lấy giá trị tìm kiếm và chuyển thành chữ thường
+                string searchText = unitTextBox.Text.ToLower(); // Lấy giá trị tìm kiếm và chuyển thành chữ thường
 
                 string query = "SELECT TenNL, DonViTinh FROM NguyenLieu";
                 dataProvider data = new dataProvider();
@@ -118,7 +114,7 @@ namespace SoTayNauAn
 
 
 
-        private void saveButton_Click(object sender, EventArgs e)
+        private void addIngredient_buton(object sender, EventArgs e)
         {
             // Lấy giá trị từ các ô văn bản
             string ingredientName = textBox1.Text.Trim();

@@ -103,6 +103,12 @@
     <Compile Include="schdule.Designer.cs">
       <DependentUpon>schdule.cs</DependentUpon>
     </Compile>
+    <Compile Include="themNLvaoCT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="themNLvaoCT.Designer.cs">
+      <DependentUpon>themNLvaoCT.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="addcook.resx">
       <DependentUpon>addcook.cs</DependentUpon>
     </EmbeddedResource>
@@ -138,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="schdule.resx">
       <DependentUpon>schdule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="themNLvaoCT.resx">
+      <DependentUpon>themNLvaoCT.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

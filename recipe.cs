@@ -26,5 +26,10 @@ namespace SoTayNauAn
         {
 
         }
+
+        private void recipeGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
