@@ -10,7 +10,7 @@ namespace SoTayNauAn.DAO
 {
     public class dataProvider
     {
-        private string con = "Data Source=DESKTOP-5DA8AQ6;Initial Catalog=CookBook;Integrated Security=True ";
+        private string con = "Data Source=DESKTOP-0FKCP5H;Initial Catalog=CookBook;User ID=sa;Password=123456 ";
         public DataTable ExecuteQuery(string query, object[] parameter = null)
         {
             DataTable data = new DataTable();

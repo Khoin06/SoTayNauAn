@@ -1,9 +1,14 @@
-
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Windows.Forms;
 using SoTayNauAn.DAO;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace SoTayNauAn
 {
@@ -77,25 +82,40 @@ namespace SoTayNauAn
                 string ingredientName = ingredientGridView.SelectedRows[0].Cells["TenNL"].Value.ToString();
 
                 // Hiển thị hộp thoại xác nhận xóa
-                DialogResult dialogResult = MessageBox.Show($"Bạn có chắc chắn muốn xóa nguyên liệu '{ingredientName}' không?",
-                                                             "Xác nhận xóa", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialogResult = MessageBox.Show(
+                    $"Bạn có chắc chắn muốn xóa nguyên liệu '{ingredientName}' không?",
+                    "Xác nhận xóa",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Warning
+                );
 
                 if (dialogResult == DialogResult.Yes) // Nếu người dùng chọn Yes
                 {
-                    // Thực hiện câu lệnh DELETE trong database
-                    string query = "DELETE FROM NguyenLieu WHERE TenNL = @tenNL";
-
-                    dataProvider data = new dataProvider();
-                    int result = data.ExecuteNonQuery(query, new object[] { ingredientName });
-
-                    if (result > 0)
+                    try
                     {
-                        MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        LoadIngredientList(); // Tải lại danh sách sau khi xóa
+                        // Xóa các bản ghi tham chiếu trong bảng con trước
+                        string deleteChildQuery = "DELETE FROM ChiTietCT WHERE TenNL = @tenNL";
+
+                        dataProvider data = new dataProvider();
+                        data.ExecuteNonQuery(deleteChildQuery, new object[] { ingredientName });
+
+                        // Xóa bản ghi trong bảng cha
+                        string deleteParentQuery = "DELETE FROM NguyenLieu WHERE TenNL = @tenNL";
+                        int result = data.ExecuteNonQuery(deleteParentQuery, new object[] { ingredientName });
+
+                        if (result > 0)
+                        {
+                            MessageBox.Show("Xóa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            LoadIngredientList(); // Tải lại danh sách sau khi xóa
+                        }
+                        else
+                        {
+                            MessageBox.Show("Xóa thất bại. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
                     }
-                    else
+                    catch (Exception ex)
                     {
-                        MessageBox.Show("Xóa thất bại. Vui lòng thử lại!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"Đã xảy ra lỗi: {ex.Message}", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -104,6 +124,7 @@ namespace SoTayNauAn
                 MessageBox.Show("Vui lòng chọn hàng cần xóa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
+
 
         // Xử lý khi nhấn Enter trong unitTextBox
         private void unitTextBox_KeyDown(object sender, KeyEventArgs e)
@@ -114,7 +135,6 @@ namespace SoTayNauAn
                 // Lấy chuỗi tìm kiếm
                 string searchText = unitTextBox.Text.Trim();
 
-
                 // Nếu TextBox trống, hiển thị toàn bộ dữ liệu
                 if (string.IsNullOrEmpty(searchText))
                 {
@@ -122,7 +142,6 @@ namespace SoTayNauAn
                     string query = "SELECT TenNL, DonViTinh FROM NguyenLieu";
                     dataProvider dataProvider = new dataProvider();
                     DataTable originalDataTable = dataProvider.ExecuteQuery(query, new object[] { });
-
 
                     // Kiểm tra nếu không có dữ liệu từ cơ sở dữ liệu
                     if (originalDataTable == null || originalDataTable.Rows.Count == 0)
@@ -149,7 +168,7 @@ namespace SoTayNauAn
 
 
 
-        private void addIngredient_buton(object sender, EventArgs e)
+        private void saveButton_Click(object sender, EventArgs e)
         {
             // Lấy giá trị từ các ô văn bản
             string ingredientName = textBox1.Text.Trim();
@@ -209,17 +228,17 @@ namespace SoTayNauAn
             }
         }
 
-       private void editButton_Click(object sender, EventArgs e)
-{
-    // Lấy thông tin từ các ô văn bản
-    string ingredientName = textBox1.Text.Trim(); // Tên nguyên liệu mới
-    string unit = textBox2.Text.Trim(); // Đơn vị tính mới
+        private void editButton_Click(object sender, EventArgs e)
+        {
+            // Lấy thông tin từ các ô văn bản
+            string ingredientName = textBox1.Text.Trim(); // Tên nguyên liệu mới
+            string unit = textBox2.Text.Trim(); // Đơn vị tính mới
 
-    if (string.IsNullOrEmpty(ingredientName) || string.IsNullOrEmpty(unit))
-    {
-        MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-        return;
-    }
+            if (string.IsNullOrEmpty(ingredientName) || string.IsNullOrEmpty(unit))
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
 
             // Kiểm tra nếu người dùng đã chọn hàng trong DataGridView
             if (ingredientGridView.SelectedRows.Count > 0)
